@@ -33,4 +33,17 @@ for product in products:
     all_products[name]["description"] = description
 
 # Affichage des informations extraites
-print("Produits:", all_products)
+print("Produits:", all_products[name]['prix'])
+
+for name in all_products.keys():
+    price_str =  all_products[name]['prix']
+    price_clean = price_str.replace('â‚¬', '')
+    # price = price_list[1].strip("€")
+    price = float(price_clean)
+    dollar = 1.2 * price
+    # print(f'Voici le nouveau prix en dollar : {dollar}')
+    all_products[name]['prix_dollar'] = f"{dollar}$"
+    
+    # dollar_price = price * 1.2
+    # print(price)
+print(all_products)
